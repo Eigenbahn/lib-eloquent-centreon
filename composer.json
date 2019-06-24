@@ -1,0 +1,39 @@
+{
+    "name": "transatel/eloquent-model-centreon",
+    "description": "An Eloquent wrapper for Centreon data model.",
+    "keywords": ["centreon", "eloquent", "laravel"],
+    "type": "library",
+    "homepage": "https://github.com/Transatel/lib-eloquent-centreon",
+    "support": {
+        "source": "https://github.com/Transatel/lib-eloquent-centreon"
+    },
+    "authors": [
+        {
+            "name": "Jordan Besly",
+            "email": "jordan.besly@transatel.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "laravel/framework": "5.4.*",
+        "barryvdh/laravel-ide-helper": "^2.3.2",
+        "doctrine/dbal": "~2.3"
+    },
+    "require": {
+        "php": ">=5.6.4",
+        "illuminate/database": "5.4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\Model\\Eloquent\\centreon\\": "app/Model/Eloquent/centreon/",
+            "App\\Model\\Eloquent\\centreon_storage\\": "app/Model/Eloquent/centreon_storage/",
+            "App\\Services\\CentreonRestApi\\": "app/Services/CentreonRestApi",
+            "App\\Services\\CentreonModel\\": "app/Services/CentreonModel"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
