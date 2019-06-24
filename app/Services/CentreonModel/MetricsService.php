@@ -62,6 +62,7 @@ class MetricsService {
               AND I.service_id = H_S.service_id
               AND I.trashed = '0'
               AND H_S.enabled = '1'
+              AND H_S.process_perfdata = '1'
             ;");
 
         return $results;
@@ -90,6 +91,7 @@ class MetricsService {
               AND I.service_id = H_S.service_id
               AND I.trashed = '0'
               AND H_S.enabled = '1'
+              AND H_S.process_perfdata = '1'
               AND LOWER(CONCAT(I.host_name, '.', I.service_description)) REGEXP LOWER('$regex')
             ;");
 
