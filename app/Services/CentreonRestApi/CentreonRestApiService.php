@@ -102,7 +102,12 @@ class CentreonRestApiService {
             "values" => $host->host_name,
         ];
 
-        list($resultCode, $response) = $this->postJsonRequest($url, $contentMap);
+        $headers = [
+            'Content-Type' => 'application/json',
+            'centreon-auth-token' => $this->authToken,
+        ];
+
+        list($resultCode, $response) = $this->postJsonRequest($url, $contentMap, $headers);
         return $resultCode === 200;
     }
 
@@ -115,7 +120,12 @@ class CentreonRestApiService {
             "values" => $host->host_name . ';' . $hostTemplate->host_name,
         ];
 
-        list($resultCode, $response) = $this->postJsonRequest($url, $contentMap);
+        $headers = [
+            'Content-Type' => 'application/json',
+            'centreon-auth-token' => $this->authToken,
+        ];
+
+        list($resultCode, $response) = $this->postJsonRequest($url, $contentMap, $headers);
         return $resultCode === 200;
     }
 
