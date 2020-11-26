@@ -98,7 +98,7 @@ class CentreonInternalRestApiService {
     // CENTENGINE EXTERNAL CMD
 
     public function acknowledgeHost ($hostName, $pollerId, $author, $comment='', $isSticky='2', $doNotify='0', $isPersistent='0', $timestamp=null) {
-        $url = $this->url . '?object=centreon_monitoring_externalcmd&action=send';
+        $url = $this->url . '?object=centreon_monitoring_externalcmd&action=Send';
 
         $headers = [
             'Content-Type' => 'application/json',
@@ -127,7 +127,7 @@ class CentreonInternalRestApiService {
     }
 
     public function unacknowledgeHost ($hostName, $pollerId, $timestamp=null) {
-        $url = $this->url . '?object=centreon_monitoring_externalcmd&action=send';
+        $url = $this->url . '?object=centreon_monitoring_externalcmd&action=Send';
 
         $headers = [
             'Content-Type' => 'application/json',
@@ -157,7 +157,7 @@ class CentreonInternalRestApiService {
     }
 
     public function acknowledgeService ($hostName, $serviceDescription, $pollerId, $author, $comment='', $isSticky='2', $doNotify='0', $isPersistent='0', $timestamp=null) {
-        $url = $this->url . '?object=centreon_monitoring_externalcmd&action=send';
+        $url = $this->url . '?object=centreon_monitoring_externalcmd&action=Send';
 
         $headers = [
             'Content-Type' => 'application/json',
@@ -186,7 +186,7 @@ class CentreonInternalRestApiService {
     }
 
     public function unacknowledgeService ($hostName, $serviceDescription, $pollerId, $timestamp=null) {
-        $url = $this->url . '?object=centreon_monitoring_externalcmd&action=send';
+        $url = $this->url . '?object=centreon_monitoring_externalcmd&action=Send';
 
         $headers = [
             'Content-Type' => 'application/json',
@@ -219,10 +219,10 @@ class CentreonInternalRestApiService {
     // METRICS
 
     public function metricsDataByService ($hostServiceIds, $from, $to) {
-        $url = $this->url . '?object=centreon_metric&action=metricsDataByService';
+        $url = $this->url . '?object=centreon_metric&action=MetricsDataByService';
 
         $url .= '&ids=' . $hostServiceIds
-            . '&start=' . $from
+             . '&start=' . $from
             . '&end='   . $to;
 
         $headers = [
