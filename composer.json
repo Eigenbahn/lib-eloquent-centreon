@@ -15,7 +15,7 @@
     ],
     "minimum-stability": "dev",
     "require-dev": {
-        "laravel/framework": "5.4.*",
+        "laravel/framework": "5.5.*",
         "barryvdh/laravel-ide-helper": "^2.3.2",
         "doctrine/dbal": "~2.3"
     },
