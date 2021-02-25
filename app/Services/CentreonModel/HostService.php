@@ -168,7 +168,7 @@ class HostService {
     // -------------------------------------------------------------------
     // SERVICE TEMPLATES FROM PARENT HOST TEMPLATES
 
-    public function getInheritedServiceTemplateList (Host $host) {
+    public function getInheritedServiceTemplateList (Host $host, $keepParentHt = false) {
         $inheritedServiceTemplateList = [];
 
         $recursiveParentTemplateList = $this->getRecursiveOrderedParentTemplateList($host);
@@ -177,7 +177,16 @@ class HostService {
             /* @var Host[] $parentTemplateList */
             foreach ($parentTemplateList as $parentTemplate) {
                 foreach($parentTemplate->services as $service) {
-                    $inheritedServiceTemplateList[$service->service_alias] = $service;
+                    if ($keepParentHt)
+                        $inheritedServiceTemplateList[$service->service_alias] = [
+                            "st" => $service,
+                            "ht" => [
+                                "id" => $parentTemplate->host_id,
+                                "name" => $parentTemplate->host_name,
+                            ],
+                        ];
+                    else
+                        $inheritedServiceTemplateList[$service->service_alias] = $service;
                 }
             }
         }
