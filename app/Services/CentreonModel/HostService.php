@@ -12,14 +12,24 @@ class HostService {
     // -------------------------------------------------------------------
     // GENERAL
 
+    static private $BRIEF_COLS = [
+        'host_id',
+        'host_alias',
+    ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Collection|Host[]
      */
-    public function getList () {
-        return Host::where([
+    public function getList ($brief = false) {
+        $selector = Host::where([
             'host_register' => '1', // not a template
             'host_activate' => '1', // enabled
-        ])->get();
+        ]);
+
+        if ($brief)
+            return $selector->get(self::$BRIEF_COLS);
+        else
+            return $selector->get();
     }
 
 
