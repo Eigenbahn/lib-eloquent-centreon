@@ -1,7 +1,11 @@
 {
     "name": "eigenbahn/eloquent-model-centreon",
     "description": "An Eloquent wrapper for Centreon data model.",
-    "keywords": ["centreon", "eloquent", "laravel"],
+    "keywords": [
+        "centreon",
+        "eloquent",
+        "laravel"
+    ],
     "type": "library",
     "homepage": "https://github.com/Eigenbahn/lib-eloquent-centreon",
     "support": {
@@ -15,7 +19,7 @@
     ],
     "minimum-stability": "dev",
     "require-dev": {
-        "laravel/framework": "5.5.*",
+        "laravel/framework": "^5.8.0",
         "barryvdh/laravel-ide-helper": "^2.4.1",
         "doctrine/dbal": "~2.3"
     },
