@@ -40,15 +40,12 @@ class HostService {
         if ($brief)
             $cols = self::$BRIEF_COLS;
 
-        if ($cols)
-            return array_filter(
-                $s->toArray(),
-                function ($key) use ($cols) {
-                    return in_array($key, $cols);
-                },
-                ARRAY_FILTER_USE_KEY
-            );
-        else
+        if ($cols) {
+            $out = [];
+            foreach ($cols as $c)
+                $out[$c] = $s->{$c};
+            return $out;
+        } else
             return $s;
     }
 
