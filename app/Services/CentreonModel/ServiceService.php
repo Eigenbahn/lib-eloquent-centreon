@@ -18,7 +18,7 @@ class ServiceService {
     // -------------------------------------------------------------------
     // GENERAL
 
-    static private $BRIEF_COLS = [
+    static public $BRIEF_COLS = [
         'service_id',
         'service_description',
         'service_template_model_stm_id', // parent st
@@ -28,16 +28,35 @@ class ServiceService {
     /**
      * @return \Illuminate\Database\Eloquent\Collection|Host[]
      */
-    public function getList ($brief = false) {
+    public function getList ($brief = false, $cols = []) {
         $selector = Service::where([
             'service_register' => '1', // not a template
             'service_activate' => '1', // enabled
         ]);
 
         if ($brief)
-            return $selector->get(self::$BRIEF_COLS);
+            $cols = self::$BRIEF_COLS;
+
+        if ($cols)
+            return $selector->get($cols);
         else
             return $selector->get();
+    }
+
+    public function format (Service $s, $brief = false, $cols = []) {
+        if ($brief)
+            $cols = self::$BRIEF_COLS;
+
+        if ($cols)
+            return array_filter(
+                $s->toArray(),
+                function ($key) use ($cols) {
+                    return in_array($key, $cols);
+                },
+                ARRAY_FILTER_USE_KEY
+            );
+        else
+            return $s;
     }
 
     /**

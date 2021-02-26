@@ -12,7 +12,7 @@ class HostService {
     // -------------------------------------------------------------------
     // GENERAL
 
-    static private $BRIEF_COLS = [
+    static public $BRIEF_COLS = [
         'host_id',
         'host_name',
         'host_alias',
@@ -21,16 +21,35 @@ class HostService {
     /**
      * @return \Illuminate\Database\Eloquent\Collection|Host[]
      */
-    public function getList ($brief = false) {
+    public function getList ($brief = false, $cols = []) {
         $selector = Host::where([
             'host_register' => '1', // not a template
             'host_activate' => '1', // enabled
         ]);
 
         if ($brief)
-            return $selector->get(self::$BRIEF_COLS);
+            $cols = self::$BRIEF_COLS;
+
+        if ($cols)
+            return $selector->get($cols);
         else
             return $selector->get();
+    }
+
+    public function format (Service $s, $brief = false, $cols = []) {
+        if ($brief)
+            $cols = self::$BRIEF_COLS;
+
+        if ($cols)
+            return array_filter(
+                $s->toArray(),
+                function ($key) use ($cols) {
+                    return in_array($key, $cols);
+                },
+                ARRAY_FILTER_USE_KEY
+            );
+        else
+            return $s;
     }
 
 
