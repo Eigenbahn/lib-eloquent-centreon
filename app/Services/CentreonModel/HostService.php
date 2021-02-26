@@ -14,6 +14,7 @@ class HostService {
 
     static private $BRIEF_COLS = [
         'host_id',
+        'host_name',
         'host_alias',
     ];
 
