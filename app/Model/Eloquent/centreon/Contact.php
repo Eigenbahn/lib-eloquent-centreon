@@ -74,6 +74,19 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Model\Eloquent\centreon\Contact whereTimeperiodTpId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Model\Eloquent\centreon\Contact whereTimeperiodTpId2($value)
  * @mixin \Eloquent
+ * @property int|null $reach_api
+ * @property int|null $reach_api_rt
+ * @property int|null $default_page
+ * @property int $contact_ldap_last_sync
+ * @property string $contact_ldap_required_sync
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereContactLdapLastSync($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereContactLdapRequiredSync($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereDefaultPage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereReachApi($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereReachApiRt($value)
  */
 class Contact extends Model {
     protected $connection = 'centreon';

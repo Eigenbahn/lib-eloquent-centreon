@@ -28,6 +28,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Model\Eloquent\centreon\TimePeriod whereTpTuesday($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Model\Eloquent\centreon\TimePeriod whereTpWednesday($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|TimePeriod newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TimePeriod newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TimePeriod query()
  */
 class TimePeriod extends Model
 {

@@ -13,6 +13,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Model\Eloquent\centreon_storage\HostGroup whereHostgroupId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Model\Eloquent\centreon_storage\HostGroup whereName($value)
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Eloquent\centreon_storage\HostGroup[] $hosts
+ * @property-read int|null $hosts_count
+ * @method static \Illuminate\Database\Eloquent\Builder|HostGroup newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|HostGroup newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|HostGroup query()
  */
 class HostGroup extends Model {
     protected $connection = 'centreon_storage';

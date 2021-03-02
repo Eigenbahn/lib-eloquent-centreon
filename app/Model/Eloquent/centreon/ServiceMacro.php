@@ -24,6 +24,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Eloquent\centreon\ServiceMacro whereSvcMacroValue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Eloquent\centreon\ServiceMacro whereSvcSvcId($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|ServiceMacro newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ServiceMacro newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ServiceMacro query()
  */
 class ServiceMacro extends Model {
     protected $connection = 'centreon';

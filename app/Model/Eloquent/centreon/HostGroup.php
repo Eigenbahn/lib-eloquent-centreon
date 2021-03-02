@@ -31,6 +31,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Model\Eloquent\centreon\HostGroup whereHgNotesUrl($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Model\Eloquent\centreon\HostGroup whereHgRrdRetention($value)
  * @mixin \Eloquent
+ * @property string|null $geo_coords
+ * @property-read int|null $hosts_count
+ * @method static \Illuminate\Database\Eloquent\Builder|HostGroup newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|HostGroup newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|HostGroup query()
+ * @method static \Illuminate\Database\Eloquent\Builder|HostGroup whereGeoCoords($value)
  */
 class HostGroup extends Model {
     protected $connection = 'centreon';

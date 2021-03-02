@@ -17,6 +17,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Eloquent\centreon_storage\DataBin whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Eloquent\centreon_storage\DataBin whereValue($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|DataBin newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|DataBin newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|DataBin query()
  */
 class DataBin extends Model {
     protected $connection = 'centreon_storage';

@@ -97,6 +97,21 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Eloquent\centreon\ServiceMacro[] $macros
  * @property-read \App\Model\Eloquent\centreon\TimePeriod|null $checkTimePeriod
  * @property-read \App\Model\Eloquent\centreon\TimePeriod|null $notificationTimePeriod
+ * @property int|null $service_recovery_notification_delay
+ * @property string|null $service_use_only_contacts_from_host
+ * @property int|null $service_acknowledgement_timeout
+ * @property string|null $geo_coords
+ * @property-read int|null $child_templates_count
+ * @property-read int|null $hosts_count
+ * @property-read int|null $macros_count
+ * @property-read int|null $service_groups_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Service newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Service newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Service query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Service whereGeoCoords($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Service whereServiceAcknowledgementTimeout($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Service whereServiceRecoveryNotificationDelay($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Service whereServiceUseOnlyContactsFromHost($value)
  */
 class Service extends Model {
     protected $connection = 'centreon';

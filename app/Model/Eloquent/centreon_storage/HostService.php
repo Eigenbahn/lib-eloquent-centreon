@@ -187,6 +187,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Eloquent\centreon_storage\HostService[] $hosts
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Eloquent\centreon_storage\HostService[] $serviceGroups
  * @property-read \App\Model\Eloquent\centreon_storage\Host $host
+ * @property-read int|null $service_groups_count
+ * @method static \Illuminate\Database\Eloquent\Builder|HostService newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|HostService newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|HostService query()
  */
 class HostService extends Model {
     protected $connection = 'centreon_storage';

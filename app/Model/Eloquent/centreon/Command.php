@@ -30,6 +30,11 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Model\Eloquent\centreon\Command whereEnableShell($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Model\Eloquent\centreon\Command whereGraphId($value)
  * @mixin \Eloquent
+ * @property string|null $command_activate
+ * @method static \Illuminate\Database\Eloquent\Builder|Command newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Command newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Command query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Command whereCommandActivate($value)
  */
 class Command extends Model {
     protected $connection = 'centreon';

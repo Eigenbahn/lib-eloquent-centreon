@@ -53,6 +53,32 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Eloquent\centreon\Poller whereSshPort($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Eloquent\centreon\Poller whereSshPrivateKey($value)
  * @mixin \Eloquent
+ * @property string|null $engine_start_command
+ * @property string|null $engine_stop_command
+ * @property string|null $engine_restart_command
+ * @property string|null $engine_reload_command
+ * @property string|null $broker_reload_command
+ * @property string $gorgone_communication_type
+ * @property int|null $gorgone_port
+ * @property string|null $centreonbroker_logs_path
+ * @property int|null $remote_id
+ * @property string $remote_server_use_as_proxy
+ * @property string $updated
+ * @property-read int|null $hosts_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Poller newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Poller newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Poller query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Poller whereBrokerReloadCommand($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Poller whereCentreonbrokerLogsPath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Poller whereEngineReloadCommand($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Poller whereEngineRestartCommand($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Poller whereEngineStartCommand($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Poller whereEngineStopCommand($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Poller whereGorgoneCommunicationType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Poller whereGorgonePort($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Poller whereRemoteId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Poller whereRemoteServerUseAsProxy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Poller whereUpdated($value)
  */
 class Poller extends Model {
     protected $connection = 'centreon';

@@ -19,6 +19,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Model\Eloquent\centreon\ServiceGroup whereSgName($value)
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Eloquent\centreon\Service[] $services
+ * @property string|null $geo_coords
+ * @property-read int|null $services_count
+ * @method static \Illuminate\Database\Eloquent\Builder|ServiceGroup newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ServiceGroup newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ServiceGroup query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ServiceGroup whereGeoCoords($value)
  */
 class ServiceGroup extends Model {
     protected $connection = 'centreon';

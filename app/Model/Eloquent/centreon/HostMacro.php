@@ -23,6 +23,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Eloquent\centreon\HostMacro whereIsPassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Eloquent\centreon\HostMacro whereMacroOrder($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|HostMacro newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|HostMacro newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|HostMacro query()
  */
 class HostMacro extends Model {
     protected $connection = 'centreon';

@@ -37,6 +37,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Eloquent\centreon_storage\IndexData whereToDelete($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Eloquent\centreon_storage\IndexData whereTrashed($value)
  * @mixin \Eloquent
+ * @property-read int|null $metrics_count
+ * @method static \Illuminate\Database\Eloquent\Builder|IndexData newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|IndexData newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|IndexData query()
  */
 class IndexData extends Model {
     protected $connection = 'centreon_storage';

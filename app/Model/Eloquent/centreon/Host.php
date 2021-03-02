@@ -104,6 +104,21 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \App\Model\Eloquent\centreon\TimePeriod|null $checkTimePeriod
  * @property-read \App\Model\Eloquent\centreon\TimePeriod|null $notificationTimePeriod
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Eloquent\centreon\Host[] $pollers
+ * @property int|null $host_recovery_notification_delay
+ * @property int|null $host_acknowledgement_timeout
+ * @property string|null $geo_coords
+ * @property-read int|null $child_templates_count
+ * @property-read int|null $host_groups_count
+ * @property-read int|null $macros_count
+ * @property-read int|null $parent_templates_count
+ * @property-read int|null $pollers_count
+ * @property-read int|null $services_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Host newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Host newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Host query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Host whereGeoCoords($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Host whereHostAcknowledgementTimeout($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Host whereHostRecoveryNotificationDelay($value)
  */
 class Host extends Model {
     protected $connection = 'centreon';

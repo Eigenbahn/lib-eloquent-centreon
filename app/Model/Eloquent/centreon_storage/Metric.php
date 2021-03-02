@@ -44,6 +44,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Eloquent\centreon_storage\Metric whereWarnLow($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Model\Eloquent\centreon_storage\Metric whereWarnThresholdMode($value)
  * @mixin \Eloquent
+ * @property-read int|null $data_bins_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Metric newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Metric newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Metric query()
  */
 class Metric extends Model {
     protected $connection = 'centreon_storage';

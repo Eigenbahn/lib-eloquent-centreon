@@ -13,6 +13,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Model\Eloquent\centreon_storage\ServiceGroup whereName($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Model\Eloquent\centreon_storage\ServiceGroup whereServicegroupId($value)
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Eloquent\centreon_storage\HostService[] $hostServices
+ * @property-read int|null $host_services_count
+ * @method static \Illuminate\Database\Eloquent\Builder|ServiceGroup newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ServiceGroup newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ServiceGroup query()
  */
 class ServiceGroup extends Model {
     protected $connection = 'centreon_storage';

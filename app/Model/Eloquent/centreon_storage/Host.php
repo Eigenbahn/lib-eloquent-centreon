@@ -180,6 +180,13 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Model\Eloquent\centreon_storage\Host whereStatusmapImage($value)
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Eloquent\centreon_storage\HostGroup[] $hostGroups
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Model\Eloquent\centreon_storage\HostService[] $hostServices
+ * @property string|null $timezone
+ * @property-read int|null $host_groups_count
+ * @property-read int|null $host_services_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Host newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Host newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Host query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Host whereTimezone($value)
  */
 class Host extends Model {
     protected $connection = 'centreon_storage';
