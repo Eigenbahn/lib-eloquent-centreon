@@ -219,12 +219,127 @@ class CentreonInternalRestApiService {
     // -------------------------------------------------------------------
     // VOLATILE DATA: METRICS
 
-    public function metricsDataByService ($hostServiceIds, $from, $to, $type='') {
+    public function metricsList ($q='') {
+        $url = $this->url . '?object=centreon_metric&action=List';
+
+        if ($q)
+            $url .= '&q=' . $q;
+
+        $headers = [
+            'Content-Type' => 'application/json',
+            'centreon-auth-token' => $this->authToken,
+        ];
+
+        list($resultCode, $response) = $this->postGetRequest($url, $headers);
+        if ($resultCode === 200) {
+            return json_decode($response, true);
+        } else {
+            return null;
+        }
+    }
+
+    public function metricsListByService ($q='', $pageLimit=null, $page=null) {
+        $url = $this->url . '?object=centreon_metric&action=ListByService';
+
+        if ($q)
+            $url .= '&q=' . $q;
+        if ($pageLimit)
+            $url .= '&page_limit=' . $pageLimit;
+        if ($page)
+            $url .= '&page=' . $page;
+
+        $headers = [
+            'Content-Type' => 'application/json',
+            'centreon-auth-token' => $this->authToken,
+        ];
+
+        list($resultCode, $response) = $this->postGetRequest($url, $headers);
+        if ($resultCode === 200) {
+            return json_decode($response, true);
+        } else {
+            return null;
+        }
+    }
+
+    public function metricsListByServiceId ($id, $q='', $pageLimit=null, $page=null) {
+        $url = $this->url . '?object=centreon_metric&action=ListByService';
+
+        $url .= '&id=' . $id;
+
+        if ($q)
+            $url .= '&q=' . $q;
+        if ($pageLimit)
+            $url .= '&page_limit=' . $pageLimit;
+        if ($page)
+            $url .= '&page=' . $page;
+
+        $headers = [
+            'Content-Type' => 'application/json',
+            'centreon-auth-token' => $this->authToken,
+        ];
+
+        list($resultCode, $response) = $this->postGetRequest($url, $headers);
+        if ($resultCode === 200) {
+            return json_decode($response, true);
+        } else {
+            return null;
+        }
+    }
+
+    public function metricsData ($hostServiceIds, $from, $to, $metricsIds='') {
+        $url = $this->url . '?object=centreon_metric&action=MetricsData';
+
+        $url .=  '&start=' . $from
+             . '&end='   . $to;
+
+        if ($hostServiceIds)
+            $url .= '&services=' . $hostServiceIds;
+        if ($metricsIds)
+            $url .= '&type='   . $metricsIds;
+
+        $headers = [
+            'Content-Type' => 'application/json',
+            'centreon-auth-token' => $this->authToken,
+        ];
+
+        list($resultCode, $response) = $this->postGetRequest($url, $headers);
+        if ($resultCode === 200) {
+            return json_decode($response, true);
+        } else {
+            return null;
+        }
+    }
+
+    public function lastMetricsData ($hostServiceIds='', $metricsIds='') {
+        $url = $this->url . '?object=centreon_metric&action=LastMetricsData';
+
+        $url .=  '&start=' . $from
+             . '&end='   . $to;
+
+        if ($hostServiceIds)
+            $url .= '&services=' . $hostServiceIds;
+        if ($metricsIds)
+            $url .= '&type='   . $metricsIds;
+
+        $headers = [
+            'Content-Type' => 'application/json',
+            'centreon-auth-token' => $this->authToken,
+        ];
+
+        list($resultCode, $response) = $this->postGetRequest($url, $headers);
+        if ($resultCode === 200) {
+            return json_decode($response, true);
+        } else {
+            return null;
+        }
+    }
+
+    public function metricsDataByService ($from, $to, $hostServiceIds='', $type='') {
         $url = $this->url . '?object=centreon_metric&action=MetricsDataByService';
 
         $url .= '&ids=' . $hostServiceIds
              . '&start=' . $from
-            . '&end='   . $to;
+             . '&end='   . $to;
 
         if ($type)
             $url .= '&type='   . $type;
