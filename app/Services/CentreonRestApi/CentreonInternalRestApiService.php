@@ -215,8 +215,9 @@ class CentreonInternalRestApiService {
         }
     }
 
+
     // -------------------------------------------------------------------
-    // METRICS
+    // VOLATILE DATA: METRICS
 
     public function metricsDataByService ($hostServiceIds, $from, $to) {
         $url = $this->url . '?object=centreon_metric&action=MetricsDataByService';
@@ -237,4 +238,76 @@ class CentreonInternalRestApiService {
             return null;
         }
     }
+
+    public function metricsDataByMetric ($metricIds, $from, $to, $type='') {
+        $url = $this->url . '?object=centreon_metric&action=MetricsDataByMetric';
+
+        $url .= '&ids=' . $metricIds
+             . '&start=' . $from
+             . '&end='   . $to;
+
+        if ($type)
+            $url .= '&type='   . $type;
+
+        $headers = [
+            'Content-Type' => 'application/json',
+            'centreon-auth-token' => $this->authToken,
+        ];
+
+        list($resultCode, $response) = $this->postGetRequest($url, $headers);
+        if ($resultCode === 200) {
+            return json_decode($response, true);
+        } else {
+            return null;
+        }
+    }
+
+    public function metricsDataByPoller ($pollerMetricIds, $from, $to, $rows=null) {
+        $url = $this->url . '?object=centreon_metric&action=MetricsDataByPoller';
+
+        $url .= '&ids=' . $pollerMetricIds
+             . '&start=' . $from
+             . '&end='   . $to;
+
+        // NB: must be a number, at least 10, default to 200
+        if ($rows)
+            $url .= '&rows='   . $rows;
+
+        $headers = [
+            'Content-Type' => 'application/json',
+            'centreon-auth-token' => $this->authToken,
+        ];
+
+        list($resultCode, $response) = $this->postGetRequest($url, $headers);
+        if ($resultCode === 200) {
+            return json_decode($response, true);
+        } else {
+            return null;
+        }
+    }
+
+
+    // -------------------------------------------------------------------
+    // VOLATILE DATA: STATUSES
+
+    public function statusByService ($hostServiceIds, $from, $to) {
+        $url = $this->url . '?object=centreon_metric&action=StatusByService';
+
+        $url .= '&ids=' . $hostServiceIds
+             . '&start=' . $from
+             . '&end='   . $to;
+
+        $headers = [
+            'Content-Type' => 'application/json',
+            'centreon-auth-token' => $this->authToken,
+        ];
+
+        list($resultCode, $response) = $this->postGetRequest($url, $headers);
+        if ($resultCode === 200) {
+            return json_decode($response, true);
+        } else {
+            return null;
+        }
+    }
+
 }
