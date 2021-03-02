@@ -219,12 +219,15 @@ class CentreonInternalRestApiService {
     // -------------------------------------------------------------------
     // VOLATILE DATA: METRICS
 
-    public function metricsDataByService ($hostServiceIds, $from, $to) {
+    public function metricsDataByService ($hostServiceIds, $from, $to, $type='') {
         $url = $this->url . '?object=centreon_metric&action=MetricsDataByService';
 
         $url .= '&ids=' . $hostServiceIds
              . '&start=' . $from
             . '&end='   . $to;
+
+        if ($type)
+            $url .= '&type='   . $type;
 
         $headers = [
             'Content-Type' => 'application/json',
