@@ -18,10 +18,10 @@ class LogsService {
                                                 $notifications=false,
                                                 $alertServiceStatuses=[],
                                                 $hardOnly=false) {
-        $this->getLogsViaMysql($from, $to, $hostId, $serviceId,
-                               $pollerIds, $outputContains, $notifications,
-                               [], $alertServiceStatuses,
-                               $hardOnly);
+        return $this->getLogsViaMysql($from, $to, $hostId, $serviceId,
+                                      $pollerIds, $outputContains, $notifications,
+                                      [], $alertServiceStatuses,
+                                      $hardOnly);
     }
 
     public function getLogsForHostViaMysql ($from, $to,
@@ -31,10 +31,10 @@ class LogsService {
                                             $notifications=false,
                                             $alertHostStatuses=[],
                                             $hardOnly=false) {
-        $this->getLogsViaMysql($from, $to, $hostId, $serviceId,
-                               $pollerIds, $outputContains,
-                               $notifications,
-                               $alertHostStatuses, [],
+        return $this->getLogsViaMysql($from, $to, $hostId, $serviceId,
+                                      $pollerIds, $outputContains,
+                                      $notifications,
+                                      $alertHostStatuses, [],
                                $hardOnly);
     }
 
