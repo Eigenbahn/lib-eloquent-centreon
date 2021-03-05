@@ -94,7 +94,7 @@ class LogsService {
         logs.instance_name
         FROM logs " . $innerJoinEngineLog
             .  "WHERE "
-            . " logs.ctime > " . $from . " AND logs.ctime <= " . $end
+            . " logs.ctime > " . $from . " AND logs.ctime <= " . $to
             . $hostFilter
             . $serviceFilter
             . $outputFilter
