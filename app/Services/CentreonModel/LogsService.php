@@ -6,7 +6,7 @@ use DateTime;
 use \DB;
 
 
-class EventsService {
+class LogsService {
 
     // -------------------------------------------------------------------
     // MAIN
