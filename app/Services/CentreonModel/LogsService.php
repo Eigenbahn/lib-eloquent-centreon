@@ -77,8 +77,18 @@ class LogsService {
         if ($hardOnly)
             $hardOnlyFilter = " AND type ='" . self::HARD . "'";
 
-        $results = DB::select(
-            "SELECT DISTINCT
+        $typesFilter = "";
+        if ($notificationsFilter || $alertHostFilter || $alertServiceFilter)
+            $typesFilter = " AND
+            ("
+                         . $notificationsFilter
+                         . $alertHostFilter
+                         . $alertServiceFilter
+                         . ")";
+
+        $results =
+                 DB::select(
+                     "SELECT DISTINCT
         logs.ctime,
         logs.host_id,
         logs.host_name,
@@ -92,20 +102,17 @@ class LogsService {
         logs.status,
         logs.type,
         logs.instance_name
-        FROM logs " . $innerJoinEngineLog
-            .  "WHERE "
-            . " logs.ctime > " . $from . " AND logs.ctime <= " . $to
-            . $hostFilter
-            . $serviceFilter
-            . $outputFilter
-            . " AND
-            ("
-            . $notificationsFilter
-            . $alertHostFilter
-            . $alertServiceFilter
-            . ")"
-            . $hardOnlyFilter
-            . ";");
+        FROM centreon_storage.logs "
+                     . $innerJoinEngineLog
+                     .  "WHERE "
+                     . " logs.ctime > " . $from . " AND logs.ctime <= " . $to
+                     . $hostFilter
+                     . $serviceFilter
+                     . $outputFilter
+                     . $typesFilter
+                     . $hardOnlyFilter
+                     . ";"
+                 );
 
         return $results;
     }
